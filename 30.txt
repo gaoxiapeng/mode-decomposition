@@ -1,0 +1,244 @@
+Current learning rate: 3.33e-04
+Saved checkpoint: ../exp/vmd/epoch20.pth.tar
+Best model (loss=0.046068) saved.
+Epoch  21 | Batch    0 | Loss 0.041586 | J1=0.0005 J2=0.0001 J3=0.0000 | CFs: omega1=122.7Hz | omega2=346.2Hz | omega3=601.0Hz
+Epoch  21 | Batch   50 | Loss 0.035618 | J1=0.0011 J2=0.0000 J3=0.0000 | CFs: omega1=120.4Hz | omega2=353.6Hz | omega3=606.9Hz
+Epoch  21 | Batch  100 | Loss 0.124542 | J1=0.0003 J2=0.0024 J3=0.0003 | CFs: omega1=123.3Hz | omega2=362.6Hz | omega3=611.3Hz
+Epoch  21 | Batch  150 | Loss 0.051916 | J1=0.0013 J2=0.0001 J3=0.0027 | CFs: omega1=118.9Hz | omega2=344.1Hz | omega3=598.7Hz
+Epoch  21 | Batch  200 | Loss 0.040103 | J1=0.0010 J2=0.0000 J3=0.0000 | CFs: omega1=114.4Hz | omega2=359.1Hz | omega3=602.4Hz
+Epoch  21 | Batch  250 | Loss 0.054893 | J1=0.0013 J2=0.0003 J3=0.0000 | CFs: omega1=120.2Hz | omega2=351.8Hz | omega3=600.4Hz
+Epoch  21 | Batch  300 | Loss 0.047834 | J1=0.0006 J2=0.0000 J3=0.0000 | CFs: omega1=115.7Hz | omega2=350.6Hz | omega3=588.4Hz
+Epoch  21 | Batch  350 | Loss 0.052186 | J1=0.0014 J2=0.0001 J3=0.0000 | CFs: omega1=116.5Hz | omega2=344.1Hz | omega3=586.6Hz
+Epoch  21 | Batch  400 | Loss 0.034679 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=115.0Hz | omega2=341.7Hz | omega3=579.6Hz
+Epoch  21 | Batch  450 | Loss 0.086851 | J1=0.0020 J2=0.0001 J3=0.0177 | CFs: omega1=112.7Hz | omega2=348.3Hz | omega3=590.7Hz
+Epoch  21 | Batch  500 | Loss 0.053652 | J1=0.0002 J2=0.0000 J3=0.0002 | CFs: omega1=114.0Hz | omega2=336.5Hz | omega3=577.3Hz
+Epoch  21 | Batch  550 | Loss 0.051720 | J1=0.0012 J2=0.0000 J3=0.0000 | CFs: omega1=105.7Hz | omega2=323.9Hz | omega3=570.6Hz
+Epoch  21 | Batch  600 | Loss 0.047500 | J1=0.0014 J2=0.0000 J3=0.0000 | CFs: omega1=106.1Hz | omega2=325.6Hz | omega3=570.0Hz
+Epoch  21 | Batch  650 | Loss 0.036564 | J1=0.0011 J2=0.0000 J3=0.0000 | CFs: omega1=103.5Hz | omega2=320.5Hz | omega3=568.9Hz
+Epoch  21 | Batch  700 | Loss 0.044202 | J1=0.0008 J2=0.0000 J3=0.0000 | CFs: omega1=104.2Hz | omega2=325.9Hz | omega3=578.7Hz
+Epoch  21 | Batch  750 | Loss 0.040088 | J1=0.0008 J2=0.0027 J3=0.0000 | CFs: omega1=108.5Hz | omega2=330.9Hz | omega3=576.1Hz
+Epoch  21 | Batch  800 | Loss 0.038996 | J1=0.0006 J2=0.0000 J3=0.0000 | CFs: omega1=104.5Hz | omega2=333.5Hz | omega3=571.8Hz
+Epoch  21 | Batch  850 | Loss 0.042167 | J1=0.0008 J2=0.0000 J3=0.0000 | CFs: omega1=97.5Hz | omega2=327.9Hz | omega3=564.8Hz
+Epoch  21 | Batch  900 | Loss 0.048505 | J1=0.0005 J2=0.0002 J3=0.0004 | CFs: omega1=102.1Hz | omega2=321.7Hz | omega3=559.6Hz
+Epoch  21 | Batch  950 | Loss 0.039040 | J1=0.0012 J2=0.0000 J3=0.0000 | CFs: omega1=98.5Hz | omega2=324.3Hz | omega3=558.5Hz
+================================================================================
+Epoch 21/200 | Time 1101.6s | Avg Loss 0.045629 | J1=0.0022 J2=0.0005 J3=0.0003 | omegas(Hz)=[103 325 565 784 994]
+================================================================================
+Current learning rate: 3.33e-04
+Best model (loss=0.045629) saved.
+Epoch  22 | Batch    0 | Loss 0.035869 | J1=0.0005 J2=0.0000 J3=0.0000 | CFs: omega1=103.6Hz | omega2=324.9Hz | omega3=565.7Hz
+Epoch  22 | Batch   50 | Loss 0.039504 | J1=0.0006 J2=0.0000 J3=0.0000 | CFs: omega1=95.9Hz | omega2=316.6Hz | omega3=552.3Hz
+Epoch  22 | Batch  100 | Loss 0.042104 | J1=0.0011 J2=0.0004 J3=0.0000 | CFs: omega1=97.1Hz | omega2=309.7Hz | omega3=550.0Hz
+Epoch  22 | Batch  150 | Loss 0.042390 | J1=0.0005 J2=0.0000 J3=0.0000 | CFs: omega1=105.0Hz | omega2=325.7Hz | omega3=564.0Hz
+Epoch  22 | Batch  200 | Loss 0.044532 | J1=0.0003 J2=0.0001 J3=0.0000 | CFs: omega1=111.7Hz | omega2=322.8Hz | omega3=566.4Hz
+Epoch  22 | Batch  250 | Loss 0.046040 | J1=0.0002 J2=0.0002 J3=0.0000 | CFs: omega1=105.4Hz | omega2=321.8Hz | omega3=555.2Hz
+Epoch  22 | Batch  300 | Loss 0.049737 | J1=0.0013 J2=0.0000 J3=0.0003 | CFs: omega1=103.4Hz | omega2=317.9Hz | omega3=552.9Hz
+Epoch  22 | Batch  350 | Loss 0.053051 | J1=0.0008 J2=0.0000 J3=0.0000 | CFs: omega1=104.7Hz | omega2=313.2Hz | omega3=555.1Hz
+Epoch  22 | Batch  400 | Loss 0.041740 | J1=0.0007 J2=0.0000 J3=0.0001 | CFs: omega1=108.5Hz | omega2=323.4Hz | omega3=555.4Hz
+Epoch  22 | Batch  450 | Loss 0.043500 | J1=0.0005 J2=0.0002 J3=0.0002 | CFs: omega1=109.8Hz | omega2=320.1Hz | omega3=549.4Hz
+Epoch  22 | Batch  500 | Loss 0.048268 | J1=0.0004 J2=0.0018 J3=0.0001 | CFs: omega1=102.1Hz | omega2=315.0Hz | omega3=551.0Hz
+Epoch  22 | Batch  550 | Loss 0.043029 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=106.1Hz | omega2=325.9Hz | omega3=548.1Hz
+Epoch  22 | Batch  600 | Loss 0.042017 | J1=0.0005 J2=0.0000 J3=0.0000 | CFs: omega1=113.4Hz | omega2=325.8Hz | omega3=550.5Hz
+Epoch  22 | Batch  650 | Loss 0.039515 | J1=0.0008 J2=0.0000 J3=0.0005 | CFs: omega1=104.3Hz | omega2=314.8Hz | omega3=546.4Hz
+Epoch  22 | Batch  700 | Loss 0.032498 | J1=0.0013 J2=0.0000 J3=0.0000 | CFs: omega1=107.9Hz | omega2=326.5Hz | omega3=545.6Hz
+Epoch  22 | Batch  750 | Loss 0.033311 | J1=0.0008 J2=0.0000 J3=0.0000 | CFs: omega1=112.9Hz | omega2=316.1Hz | omega3=548.5Hz
+Epoch  22 | Batch  800 | Loss 0.041140 | J1=0.0004 J2=0.0000 J3=0.0003 | CFs: omega1=106.9Hz | omega2=312.5Hz | omega3=547.3Hz
+Epoch  22 | Batch  850 | Loss 0.042039 | J1=0.0005 J2=0.0000 J3=0.0000 | CFs: omega1=99.5Hz | omega2=315.4Hz | omega3=543.5Hz
+Epoch  22 | Batch  900 | Loss 0.034965 | J1=0.0008 J2=0.0000 J3=0.0003 | CFs: omega1=105.9Hz | omega2=312.6Hz | omega3=539.5Hz
+Epoch  22 | Batch  950 | Loss 0.056337 | J1=0.0008 J2=0.0013 J3=0.0001 | CFs: omega1=107.0Hz | omega2=307.9Hz | omega3=535.8Hz
+================================================================================
+Epoch 22/200 | Time 1101.0s | Avg Loss 0.047800 | J1=0.0023 J2=0.0013 J3=0.0007 | omegas(Hz)=[102 310 529 767 986]
+================================================================================
+Current learning rate: 3.27e-04
+Epoch  23 | Batch    0 | Loss 0.043546 | J1=0.0012 J2=0.0009 J3=0.0000 | CFs: omega1=100.7Hz | omega2=310.4Hz | omega3=529.9Hz
+Epoch  23 | Batch   50 | Loss 0.041675 | J1=0.0006 J2=0.0000 J3=0.0001 | CFs: omega1=95.6Hz | omega2=303.5Hz | omega3=532.4Hz
+Epoch  23 | Batch  100 | Loss 0.045186 | J1=0.0007 J2=0.0000 J3=0.0022 | CFs: omega1=103.4Hz | omega2=309.6Hz | omega3=535.3Hz
+Epoch  23 | Batch  150 | Loss 0.036495 | J1=0.0010 J2=0.0000 J3=0.0003 | CFs: omega1=100.4Hz | omega2=309.1Hz | omega3=541.8Hz
+Epoch  23 | Batch  200 | Loss 0.043177 | J1=0.0002 J2=0.0000 J3=0.0002 | CFs: omega1=94.0Hz | omega2=299.2Hz | omega3=546.5Hz
+Epoch  23 | Batch  250 | Loss 0.048752 | J1=0.0017 J2=0.0000 J3=0.0000 | CFs: omega1=92.8Hz | omega2=293.9Hz | omega3=539.0Hz
+Epoch  23 | Batch  300 | Loss 0.044245 | J1=0.0004 J2=0.0021 J3=0.0000 | CFs: omega1=91.9Hz | omega2=293.3Hz | omega3=541.2Hz
+Epoch  23 | Batch  350 | Loss 0.045618 | J1=0.0001 J2=0.0000 J3=0.0001 | CFs: omega1=94.6Hz | omega2=309.8Hz | omega3=554.7Hz
+Epoch  23 | Batch  400 | Loss 0.043192 | J1=0.0005 J2=0.0000 J3=0.0000 | CFs: omega1=96.8Hz | omega2=313.6Hz | omega3=557.9Hz
+Epoch  23 | Batch  450 | Loss 0.029130 | J1=0.0006 J2=0.0000 J3=0.0000 | CFs: omega1=89.7Hz | omega2=301.4Hz | omega3=551.9Hz
+Epoch  23 | Batch  500 | Loss 0.039146 | J1=0.0015 J2=0.0072 J3=0.0008 | CFs: omega1=91.8Hz | omega2=303.0Hz | omega3=551.8Hz
+Epoch  23 | Batch  550 | Loss 0.041348 | J1=0.0008 J2=0.0000 J3=0.0000 | CFs: omega1=97.9Hz | omega2=311.5Hz | omega3=555.6Hz
+Epoch  23 | Batch  600 | Loss 0.032756 | J1=0.0005 J2=0.0000 J3=0.0000 | CFs: omega1=112.6Hz | omega2=320.5Hz | omega3=559.1Hz
+Epoch  23 | Batch  650 | Loss 0.040848 | J1=0.0012 J2=0.0000 J3=0.0000 | CFs: omega1=114.3Hz | omega2=327.0Hz | omega3=552.1Hz
+Epoch  23 | Batch  700 | Loss 0.038749 | J1=0.0035 J2=0.0002 J3=0.0000 | CFs: omega1=107.6Hz | omega2=321.0Hz | omega3=554.7Hz
+Epoch  23 | Batch  750 | Loss 0.041054 | J1=0.0010 J2=0.0003 J3=0.0001 | CFs: omega1=100.6Hz | omega2=319.3Hz | omega3=555.9Hz
+Epoch  23 | Batch  800 | Loss 0.038671 | J1=0.0003 J2=0.0000 J3=0.0001 | CFs: omega1=90.9Hz | omega2=307.2Hz | omega3=551.9Hz
+Epoch  23 | Batch  850 | Loss 0.043914 | J1=0.0011 J2=0.0000 J3=0.0005 | CFs: omega1=88.8Hz | omega2=304.1Hz | omega3=548.3Hz
+Epoch  23 | Batch  900 | Loss 0.036955 | J1=0.0006 J2=0.0000 J3=0.0000 | CFs: omega1=91.5Hz | omega2=298.7Hz | omega3=553.9Hz
+Epoch  23 | Batch  950 | Loss 0.042204 | J1=0.0004 J2=0.0013 J3=0.0002 | CFs: omega1=83.9Hz | omega2=293.6Hz | omega3=537.4Hz
+================================================================================
+Epoch 23/200 | Time 1101.5s | Avg Loss 0.043101 | J1=0.0021 J2=0.0005 J3=0.0001 | omegas(Hz)=[107 314 550 777 982]
+================================================================================
+Current learning rate: 3.27e-04
+Best model (loss=0.043101) saved.
+Epoch  24 | Batch    0 | Loss 0.051229 | J1=0.0012 J2=0.0000 J3=0.0000 | CFs: omega1=106.4Hz | omega2=314.5Hz | omega3=551.7Hz
+Epoch  24 | Batch   50 | Loss 0.041521 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=106.0Hz | omega2=321.6Hz | omega3=555.0Hz
+Epoch  24 | Batch  100 | Loss 0.032671 | J1=0.0003 J2=0.0003 J3=0.0000 | CFs: omega1=114.6Hz | omega2=325.9Hz | omega3=557.0Hz
+Epoch  24 | Batch  150 | Loss 0.028251 | J1=0.0007 J2=0.0000 J3=0.0002 | CFs: omega1=105.5Hz | omega2=314.9Hz | omega3=552.9Hz
+Epoch  24 | Batch  200 | Loss 0.036681 | J1=0.0004 J2=0.0004 J3=0.0000 | CFs: omega1=101.2Hz | omega2=302.0Hz | omega3=548.0Hz
+Epoch  24 | Batch  250 | Loss 0.040180 | J1=0.0015 J2=0.0000 J3=0.0000 | CFs: omega1=95.7Hz | omega2=303.8Hz | omega3=542.7Hz
+Epoch  24 | Batch  300 | Loss 0.032315 | J1=0.0002 J2=0.0000 J3=0.0000 | CFs: omega1=97.9Hz | omega2=307.3Hz | omega3=549.6Hz
+Epoch  24 | Batch  350 | Loss 0.053810 | J1=0.0002 J2=0.0011 J3=0.0001 | CFs: omega1=95.4Hz | omega2=303.8Hz | omega3=542.8Hz
+Epoch  24 | Batch  400 | Loss 0.050880 | J1=0.0004 J2=0.0001 J3=0.0001 | CFs: omega1=95.4Hz | omega2=308.2Hz | omega3=539.2Hz
+Epoch  24 | Batch  450 | Loss 0.031950 | J1=0.0008 J2=0.0004 J3=0.0000 | CFs: omega1=96.9Hz | omega2=304.2Hz | omega3=547.0Hz
+Epoch  24 | Batch  500 | Loss 0.036458 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=92.7Hz | omega2=302.3Hz | omega3=547.1Hz
+Epoch  24 | Batch  550 | Loss 0.041357 | J1=0.0006 J2=0.0004 J3=0.0002 | CFs: omega1=95.5Hz | omega2=317.1Hz | omega3=554.2Hz
+Epoch  24 | Batch  600 | Loss 0.038863 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=92.3Hz | omega2=308.8Hz | omega3=546.1Hz
+Epoch  24 | Batch  650 | Loss 0.032101 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=102.4Hz | omega2=309.3Hz | omega3=545.7Hz
+Epoch  24 | Batch  700 | Loss 0.050148 | J1=0.0030 J2=0.0000 J3=0.0000 | CFs: omega1=102.2Hz | omega2=309.5Hz | omega3=535.6Hz
+Epoch  24 | Batch  750 | Loss 0.026934 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=100.4Hz | omega2=306.5Hz | omega3=533.8Hz
+Epoch  24 | Batch  800 | Loss 0.043339 | J1=0.0007 J2=0.0000 J3=0.0003 | CFs: omega1=98.7Hz | omega2=310.4Hz | omega3=539.0Hz
+Epoch  24 | Batch  850 | Loss 0.038029 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=96.9Hz | omega2=306.0Hz | omega3=544.9Hz
+Epoch  24 | Batch  900 | Loss 0.040738 | J1=0.0005 J2=0.0007 J3=0.0000 | CFs: omega1=91.5Hz | omega2=303.2Hz | omega3=540.3Hz
+Epoch  24 | Batch  950 | Loss 0.043958 | J1=0.0002 J2=0.0000 J3=0.0000 | CFs: omega1=94.1Hz | omega2=296.7Hz | omega3=543.1Hz
+================================================================================
+Epoch 24/200 | Time 1101.6s | Avg Loss 0.042003 | J1=0.0021 J2=0.0004 J3=0.0003 | omegas(Hz)=[92 294 535 775 971]
+================================================================================
+Current learning rate: 3.20e-04
+Best model (loss=0.042003) saved.
+Epoch  25 | Batch    0 | Loss 0.038699 | J1=0.0004 J2=0.0217 J3=0.0000 | CFs: omega1=91.3Hz | omega2=294.7Hz | omega3=538.6Hz
+Epoch  25 | Batch   50 | Loss 0.034446 | J1=0.0006 J2=0.0001 J3=0.0001 | CFs: omega1=90.8Hz | omega2=298.5Hz | omega3=535.8Hz
+Epoch  25 | Batch  100 | Loss 0.041270 | J1=0.0005 J2=0.0001 J3=0.0001 | CFs: omega1=85.9Hz | omega2=289.5Hz | omega3=544.2Hz
+Epoch  25 | Batch  150 | Loss 0.051860 | J1=0.0004 J2=0.0008 J3=0.0000 | CFs: omega1=84.4Hz | omega2=301.1Hz | omega3=539.3Hz
+Epoch  25 | Batch  200 | Loss 0.042359 | J1=0.0002 J2=0.0003 J3=0.0000 | CFs: omega1=86.5Hz | omega2=295.3Hz | omega3=536.0Hz
+Epoch  25 | Batch  250 | Loss 0.044083 | J1=0.0003 J2=0.0016 J3=0.0000 | CFs: omega1=90.1Hz | omega2=307.1Hz | omega3=544.2Hz
+Epoch  25 | Batch  300 | Loss 0.049372 | J1=0.0002 J2=0.0000 J3=0.0000 | CFs: omega1=94.2Hz | omega2=309.3Hz | omega3=553.9Hz
+Epoch  25 | Batch  350 | Loss 0.036467 | J1=0.0002 J2=0.0000 J3=0.0000 | CFs: omega1=88.8Hz | omega2=302.1Hz | omega3=551.2Hz
+Epoch  25 | Batch  400 | Loss 0.054089 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=90.7Hz | omega2=307.9Hz | omega3=561.0Hz
+Epoch  25 | Batch  450 | Loss 0.042174 | J1=0.0003 J2=0.0003 J3=0.0015 | CFs: omega1=89.5Hz | omega2=301.8Hz | omega3=548.8Hz
+Epoch  25 | Batch  500 | Loss 0.042269 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=95.0Hz | omega2=303.6Hz | omega3=555.7Hz
+Epoch  25 | Batch  550 | Loss 0.044516 | J1=0.0006 J2=0.0000 J3=0.0004 | CFs: omega1=89.0Hz | omega2=295.0Hz | omega3=547.2Hz
+Epoch  25 | Batch  600 | Loss 0.045439 | J1=0.0002 J2=0.0000 J3=0.0001 | CFs: omega1=87.2Hz | omega2=299.0Hz | omega3=553.4Hz
+Epoch  25 | Batch  650 | Loss 0.044332 | J1=0.0007 J2=0.0000 J3=0.0004 | CFs: omega1=95.0Hz | omega2=307.1Hz | omega3=559.3Hz
+Epoch  25 | Batch  700 | Loss 0.045348 | J1=0.0003 J2=0.0013 J3=0.0000 | CFs: omega1=96.2Hz | omega2=304.9Hz | omega3=549.1Hz
+Epoch  25 | Batch  750 | Loss 0.036777 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=96.2Hz | omega2=301.4Hz | omega3=550.6Hz
+Epoch  25 | Batch  800 | Loss 0.031024 | J1=0.0004 J2=0.0163 J3=0.0001 | CFs: omega1=94.8Hz | omega2=299.6Hz | omega3=548.6Hz
+Epoch  25 | Batch  850 | Loss 0.034755 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=93.6Hz | omega2=319.4Hz | omega3=556.8Hz
+Epoch  25 | Batch  900 | Loss 0.045632 | J1=0.0005 J2=0.0004 J3=0.0001 | CFs: omega1=89.7Hz | omega2=317.5Hz | omega3=561.3Hz
+Epoch  25 | Batch  950 | Loss 0.029995 | J1=0.0002 J2=0.0008 J3=0.0002 | CFs: omega1=99.4Hz | omega2=308.6Hz | omega3=550.7Hz
+================================================================================
+Epoch 25/200 | Time 1101.3s | Avg Loss 0.042791 | J1=0.0021 J2=0.0003 J3=0.0002 | omegas(Hz)=[94 306 548 771 964]
+================================================================================
+Current learning rate: 3.20e-04
+Epoch  26 | Batch    0 | Loss 0.034993 | J1=0.0002 J2=0.0000 J3=0.0000 | CFs: omega1=94.0Hz | omega2=305.4Hz | omega3=546.5Hz
+Epoch  26 | Batch   50 | Loss 0.033808 | J1=0.0002 J2=0.0000 J3=0.0000 | CFs: omega1=87.2Hz | omega2=309.2Hz | omega3=555.2Hz
+Epoch  26 | Batch  100 | Loss 0.036963 | J1=0.0001 J2=0.0017 J3=0.0000 | CFs: omega1=87.9Hz | omega2=307.5Hz | omega3=557.4Hz
+Epoch  26 | Batch  150 | Loss 0.045951 | J1=0.0002 J2=0.0001 J3=0.0000 | CFs: omega1=89.1Hz | omega2=311.7Hz | omega3=561.0Hz
+Epoch  26 | Batch  200 | Loss 0.039924 | J1=0.0003 J2=0.0029 J3=0.0000 | CFs: omega1=95.3Hz | omega2=312.8Hz | omega3=560.0Hz
+Epoch  26 | Batch  250 | Loss 0.033937 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=88.2Hz | omega2=310.2Hz | omega3=559.8Hz
+Epoch  26 | Batch  300 | Loss 0.042259 | J1=0.0002 J2=0.0001 J3=0.0000 | CFs: omega1=87.6Hz | omega2=312.9Hz | omega3=553.2Hz
+Epoch  26 | Batch  350 | Loss 0.038862 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=93.0Hz | omega2=307.3Hz | omega3=548.5Hz
+Epoch  26 | Batch  400 | Loss 0.049973 | J1=0.0008 J2=0.0001 J3=0.0000 | CFs: omega1=83.9Hz | omega2=323.1Hz | omega3=566.9Hz
+Epoch  26 | Batch  450 | Loss 0.041507 | J1=0.0002 J2=0.0086 J3=0.0008 | CFs: omega1=89.3Hz | omega2=317.4Hz | omega3=557.6Hz
+Epoch  26 | Batch  500 | Loss 0.035904 | J1=0.0003 J2=0.0000 J3=0.0003 | CFs: omega1=88.5Hz | omega2=308.0Hz | omega3=554.2Hz
+Epoch  26 | Batch  550 | Loss 0.042266 | J1=0.0007 J2=0.0000 J3=0.0000 | CFs: omega1=87.0Hz | omega2=309.4Hz | omega3=552.1Hz
+Epoch  26 | Batch  600 | Loss 0.050585 | J1=0.0006 J2=0.0013 J3=0.0019 | CFs: omega1=89.7Hz | omega2=322.7Hz | omega3=558.5Hz
+Epoch  26 | Batch  650 | Loss 0.048199 | J1=0.0002 J2=0.0000 J3=0.0000 | CFs: omega1=93.6Hz | omega2=322.5Hz | omega3=554.3Hz
+Epoch  26 | Batch  700 | Loss 0.036801 | J1=0.0001 J2=0.0000 J3=0.0017 | CFs: omega1=91.1Hz | omega2=320.2Hz | omega3=564.0Hz
+Epoch  26 | Batch  750 | Loss 0.038967 | J1=0.0002 J2=0.0001 J3=0.0000 | CFs: omega1=85.0Hz | omega2=301.8Hz | omega3=558.7Hz
+Epoch  26 | Batch  800 | Loss 0.045266 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=92.5Hz | omega2=306.9Hz | omega3=541.1Hz
+Epoch  26 | Batch  850 | Loss 0.043687 | J1=0.0002 J2=0.0023 J3=0.0000 | CFs: omega1=90.6Hz | omega2=305.9Hz | omega3=543.5Hz
+Epoch  26 | Batch  900 | Loss 0.041998 | J1=0.0002 J2=0.0000 J3=0.0000 | CFs: omega1=85.2Hz | omega2=300.4Hz | omega3=542.1Hz
+Epoch  26 | Batch  950 | Loss 0.038342 | J1=0.0005 J2=0.0005 J3=0.0001 | CFs: omega1=83.6Hz | omega2=297.5Hz | omega3=535.0Hz
+================================================================================
+Epoch 26/200 | Time 1101.0s | Avg Loss 0.043322 | J1=0.0021 J2=0.0003 J3=0.0003 | omegas(Hz)=[87 294 537 765 974]
+================================================================================
+Current learning rate: 3.14e-04
+Epoch  27 | Batch    0 | Loss 0.034414 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=87.8Hz | omega2=293.0Hz | omega3=538.1Hz
+Epoch  27 | Batch   50 | Loss 0.037573 | J1=0.0004 J2=0.0003 J3=0.0002 | CFs: omega1=86.4Hz | omega2=295.1Hz | omega3=536.2Hz
+Epoch  27 | Batch  100 | Loss 0.053549 | J1=0.0022 J2=0.0000 J3=0.0000 | CFs: omega1=90.9Hz | omega2=298.7Hz | omega3=536.8Hz
+Epoch  27 | Batch  150 | Loss 0.047720 | J1=0.0001 J2=0.0009 J3=0.0025 | CFs: omega1=101.1Hz | omega2=287.3Hz | omega3=529.7Hz
+Epoch  27 | Batch  200 | Loss 0.041409 | J1=0.0015 J2=0.0001 J3=0.0005 | CFs: omega1=100.3Hz | omega2=307.4Hz | omega3=543.7Hz
+Epoch  27 | Batch  250 | Loss 0.046115 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=97.5Hz | omega2=314.8Hz | omega3=538.7Hz
+Epoch  27 | Batch  300 | Loss 0.049885 | J1=0.0005 J2=0.0008 J3=0.0000 | CFs: omega1=100.7Hz | omega2=306.6Hz | omega3=546.5Hz
+Epoch  27 | Batch  350 | Loss 0.044407 | J1=0.0005 J2=0.0000 J3=0.0000 | CFs: omega1=101.2Hz | omega2=308.8Hz | omega3=538.4Hz
+Epoch  27 | Batch  400 | Loss 0.039465 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=98.0Hz | omega2=302.0Hz | omega3=539.8Hz
+Epoch  27 | Batch  450 | Loss 0.035997 | J1=0.0005 J2=0.0000 J3=0.0003 | CFs: omega1=97.2Hz | omega2=307.9Hz | omega3=546.3Hz
+Epoch  27 | Batch  500 | Loss 0.037905 | J1=0.0006 J2=0.0056 J3=0.0001 | CFs: omega1=95.6Hz | omega2=303.7Hz | omega3=529.4Hz
+Epoch  27 | Batch  550 | Loss 0.046456 | J1=0.0006 J2=0.0001 J3=0.0001 | CFs: omega1=91.4Hz | omega2=297.3Hz | omega3=530.8Hz
+Epoch  27 | Batch  600 | Loss 0.031777 | J1=0.0006 J2=0.0000 J3=0.0001 | CFs: omega1=87.4Hz | omega2=303.7Hz | omega3=537.1Hz
+Epoch  27 | Batch  650 | Loss 0.073387 | J1=0.0005 J2=0.0904 J3=0.0019 | CFs: omega1=88.6Hz | omega2=294.4Hz | omega3=544.8Hz
+Epoch  27 | Batch  700 | Loss 0.041256 | J1=0.0002 J2=0.0093 J3=0.0004 | CFs: omega1=90.2Hz | omega2=293.1Hz | omega3=543.2Hz
+Epoch  27 | Batch  750 | Loss 0.034676 | J1=0.0006 J2=0.0000 J3=0.0000 | CFs: omega1=89.7Hz | omega2=296.7Hz | omega3=528.6Hz
+Epoch  27 | Batch  800 | Loss 0.042063 | J1=0.0008 J2=0.0000 J3=0.0000 | CFs: omega1=91.8Hz | omega2=300.7Hz | omega3=534.2Hz
+Epoch  27 | Batch  850 | Loss 0.032836 | J1=0.0003 J2=0.0000 J3=0.0001 | CFs: omega1=91.9Hz | omega2=309.5Hz | omega3=542.7Hz
+Epoch  27 | Batch  900 | Loss 0.051517 | J1=0.0001 J2=0.0005 J3=0.0001 | CFs: omega1=88.3Hz | omega2=300.6Hz | omega3=543.1Hz
+Epoch  27 | Batch  950 | Loss 0.033329 | J1=0.0005 J2=0.0003 J3=0.0076 | CFs: omega1=85.8Hz | omega2=313.8Hz | omega3=552.6Hz
+================================================================================
+Epoch 27/200 | Time 1101.4s | Avg Loss 0.053728 | J1=0.0026 J2=0.0008 J3=0.0006 | omegas(Hz)=[84 305 542 761 964]
+================================================================================
+Current learning rate: 3.14e-04
+Epoch  28 | Batch    0 | Loss 0.047647 | J1=0.0002 J2=0.0000 J3=0.0003 | CFs: omega1=83.9Hz | omega2=305.7Hz | omega3=541.3Hz
+Epoch  28 | Batch   50 | Loss 0.033924 | J1=0.0005 J2=0.0001 J3=0.0000 | CFs: omega1=81.6Hz | omega2=308.4Hz | omega3=554.0Hz
+Epoch  28 | Batch  100 | Loss 0.046591 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=90.9Hz | omega2=317.3Hz | omega3=552.6Hz
+Epoch  28 | Batch  150 | Loss 0.044868 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=105.2Hz | omega2=325.4Hz | omega3=559.6Hz
+Epoch  28 | Batch  200 | Loss 0.036491 | J1=0.0003 J2=0.0059 J3=0.0000 | CFs: omega1=98.8Hz | omega2=314.8Hz | omega3=546.5Hz
+Epoch  28 | Batch  250 | Loss 0.105959 | J1=0.0019 J2=0.0000 J3=0.0000 | CFs: omega1=99.8Hz | omega2=317.1Hz | omega3=550.3Hz
+Epoch  28 | Batch  300 | Loss 0.042069 | J1=0.0007 J2=0.0010 J3=0.0000 | CFs: omega1=99.9Hz | omega2=322.9Hz | omega3=550.7Hz
+Epoch  28 | Batch  350 | Loss 0.051714 | J1=0.0006 J2=0.0034 J3=0.0000 | CFs: omega1=99.9Hz | omega2=316.1Hz | omega3=546.6Hz
+Epoch  28 | Batch  400 | Loss 0.046830 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=101.2Hz | omega2=309.3Hz | omega3=547.1Hz
+Epoch  28 | Batch  450 | Loss 0.038806 | J1=0.0010 J2=0.0003 J3=0.0000 | CFs: omega1=98.3Hz | omega2=310.6Hz | omega3=546.8Hz
+Epoch  28 | Batch  500 | Loss 0.034589 | J1=0.0009 J2=0.0007 J3=0.0000 | CFs: omega1=90.8Hz | omega2=311.0Hz | omega3=544.1Hz
+Epoch  28 | Batch  550 | Loss 0.026702 | J1=0.0006 J2=0.0006 J3=0.0000 | CFs: omega1=88.7Hz | omega2=300.5Hz | omega3=543.2Hz
+Epoch  28 | Batch  600 | Loss 0.041090 | J1=0.0006 J2=0.0041 J3=0.0000 | CFs: omega1=85.7Hz | omega2=294.6Hz | omega3=535.3Hz
+Epoch  28 | Batch  650 | Loss 0.038140 | J1=0.0013 J2=0.0001 J3=0.0007 | CFs: omega1=94.8Hz | omega2=291.5Hz | omega3=525.9Hz
+Epoch  28 | Batch  700 | Loss 0.030994 | J1=0.0006 J2=0.0000 J3=0.0000 | CFs: omega1=89.0Hz | omega2=304.5Hz | omega3=525.4Hz
+Epoch  28 | Batch  750 | Loss 0.050717 | J1=0.0006 J2=0.0000 J3=0.0001 | CFs: omega1=92.9Hz | omega2=295.9Hz | omega3=526.3Hz
+Epoch  28 | Batch  800 | Loss 0.054122 | J1=0.0009 J2=0.0024 J3=0.0002 | CFs: omega1=97.3Hz | omega2=315.1Hz | omega3=533.0Hz
+Epoch  28 | Batch  850 | Loss 0.039319 | J1=0.0014 J2=0.0001 J3=0.0000 | CFs: omega1=95.6Hz | omega2=323.1Hz | omega3=551.4Hz
+Epoch  28 | Batch  900 | Loss 0.044928 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=95.0Hz | omega2=314.1Hz | omega3=559.9Hz
+Epoch  28 | Batch  950 | Loss 0.044144 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=102.1Hz | omega2=325.9Hz | omega3=563.6Hz
+================================================================================
+Epoch 28/200 | Time 1101.0s | Avg Loss 0.044727 | J1=0.0022 J2=0.0004 J3=0.0002 | omegas(Hz)=[103 328 562 779 975]
+================================================================================
+Current learning rate: 3.08e-04
+Epoch  29 | Batch    0 | Loss 0.042735 | J1=0.0006 J2=0.0004 J3=0.0000 | CFs: omega1=101.7Hz | omega2=327.8Hz | omega3=562.1Hz
+Epoch  29 | Batch   50 | Loss 0.036124 | J1=0.0011 J2=0.0005 J3=0.0004 | CFs: omega1=108.9Hz | omega2=332.4Hz | omega3=561.8Hz
+Epoch  29 | Batch  100 | Loss 0.037398 | J1=0.0006 J2=0.0003 J3=0.0000 | CFs: omega1=104.5Hz | omega2=323.9Hz | omega3=557.9Hz
+Epoch  29 | Batch  150 | Loss 0.045590 | J1=0.0019 J2=0.0000 J3=0.0000 | CFs: omega1=97.5Hz | omega2=327.7Hz | omega3=560.8Hz
+Epoch  29 | Batch  200 | Loss 0.047120 | J1=0.0022 J2=0.0000 J3=0.0000 | CFs: omega1=97.5Hz | omega2=334.8Hz | omega3=571.7Hz
+Epoch  29 | Batch  250 | Loss 0.054540 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=92.1Hz | omega2=327.7Hz | omega3=568.1Hz
+Epoch  29 | Batch  300 | Loss 0.030223 | J1=0.0006 J2=0.0000 J3=0.0000 | CFs: omega1=93.8Hz | omega2=317.6Hz | omega3=562.7Hz
+Epoch  29 | Batch  350 | Loss 0.036470 | J1=0.0002 J2=0.0000 J3=0.0001 | CFs: omega1=95.7Hz | omega2=314.9Hz | omega3=558.0Hz
+Epoch  29 | Batch  400 | Loss 0.042188 | J1=0.0003 J2=0.0001 J3=0.0003 | CFs: omega1=99.2Hz | omega2=323.8Hz | omega3=557.6Hz
+Epoch  29 | Batch  450 | Loss 0.047030 | J1=0.0005 J2=0.0010 J3=0.0001 | CFs: omega1=105.0Hz | omega2=321.8Hz | omega3=548.2Hz
+Epoch  29 | Batch  500 | Loss 0.050108 | J1=0.0002 J2=0.0077 J3=0.0000 | CFs: omega1=97.6Hz | omega2=323.1Hz | omega3=554.5Hz
+Epoch  29 | Batch  550 | Loss 0.031517 | J1=0.0005 J2=0.0002 J3=0.0009 | CFs: omega1=98.8Hz | omega2=314.8Hz | omega3=549.4Hz
+Epoch  29 | Batch  600 | Loss 0.050153 | J1=0.0006 J2=0.0000 J3=0.0000 | CFs: omega1=100.6Hz | omega2=320.4Hz | omega3=549.2Hz
+Epoch  29 | Batch  650 | Loss 0.045815 | J1=0.0006 J2=0.0000 J3=0.0000 | CFs: omega1=94.8Hz | omega2=314.3Hz | omega3=543.4Hz
+Epoch  29 | Batch  700 | Loss 0.038566 | J1=0.0003 J2=0.0000 J3=0.0007 | CFs: omega1=93.8Hz | omega2=307.8Hz | omega3=543.1Hz
+Epoch  29 | Batch  750 | Loss 0.062501 | J1=0.0013 J2=0.0017 J3=0.0000 | CFs: omega1=91.6Hz | omega2=315.1Hz | omega3=544.0Hz
+Epoch  29 | Batch  800 | Loss 0.043430 | J1=0.0002 J2=0.0000 J3=0.0002 | CFs: omega1=93.3Hz | omega2=312.3Hz | omega3=545.8Hz
+Epoch  29 | Batch  850 | Loss 0.039636 | J1=0.0008 J2=0.0118 J3=0.0000 | CFs: omega1=97.5Hz | omega2=314.7Hz | omega3=560.9Hz
+Epoch  29 | Batch  900 | Loss 0.033184 | J1=0.0005 J2=0.0000 J3=0.0002 | CFs: omega1=104.6Hz | omega2=326.1Hz | omega3=564.4Hz
+Epoch  29 | Batch  950 | Loss 0.035358 | J1=0.0005 J2=0.0019 J3=0.0000 | CFs: omega1=104.0Hz | omega2=330.7Hz | omega3=569.6Hz
+================================================================================
+Epoch 29/200 | Time 1098.9s | Avg Loss 0.044036 | J1=0.0022 J2=0.0005 J3=0.0002 | omegas(Hz)=[106 336 580 791 980]
+================================================================================
+Current learning rate: 3.08e-04
+Epoch  30 | Batch    0 | Loss 0.067026 | J1=0.0055 J2=0.0000 J3=0.0000 | CFs: omega1=105.3Hz | omega2=336.4Hz | omega3=577.6Hz
+Epoch  30 | Batch   50 | Loss 0.055327 | J1=0.0005 J2=0.0000 J3=0.0002 | CFs: omega1=104.2Hz | omega2=336.8Hz | omega3=573.2Hz
+Epoch  30 | Batch  100 | Loss 0.042533 | J1=0.0005 J2=0.0024 J3=0.0001 | CFs: omega1=110.4Hz | omega2=327.0Hz | omega3=554.5Hz
+Epoch  30 | Batch  150 | Loss 0.047888 | J1=0.0002 J2=0.0000 J3=0.0000 | CFs: omega1=108.1Hz | omega2=327.7Hz | omega3=555.3Hz
+Epoch  30 | Batch  200 | Loss 0.033779 | J1=0.0006 J2=0.0017 J3=0.0000 | CFs: omega1=108.6Hz | omega2=337.4Hz | omega3=566.3Hz
+Epoch  30 | Batch  250 | Loss 0.045095 | J1=0.0004 J2=0.0005 J3=0.0017 | CFs: omega1=101.8Hz | omega2=331.3Hz | omega3=571.6Hz
+Epoch  30 | Batch  300 | Loss 0.135999 | J1=0.0082 J2=0.0001 J3=0.0000 | CFs: omega1=113.7Hz | omega2=339.3Hz | omega3=556.0Hz
+Epoch  30 | Batch  350 | Loss 0.043504 | J1=0.0009 J2=0.0000 J3=0.0000 | CFs: omega1=138.7Hz | omega2=351.6Hz | omega3=561.0Hz
+Epoch  30 | Batch  400 | Loss 0.030520 | J1=0.0006 J2=0.0007 J3=0.0009 | CFs: omega1=119.9Hz | omega2=345.9Hz | omega3=570.5Hz
+Epoch  30 | Batch  450 | Loss 0.043629 | J1=0.0004 J2=0.0012 J3=0.0000 | CFs: omega1=122.2Hz | omega2=342.6Hz | omega3=565.1Hz
+Epoch  30 | Batch  500 | Loss 0.034988 | J1=0.0004 J2=0.0000 J3=0.0001 | CFs: omega1=119.1Hz | omega2=342.7Hz | omega3=566.4Hz
+Epoch  30 | Batch  550 | Loss 0.036412 | J1=0.0007 J2=0.0002 J3=0.0001 | CFs: omega1=119.4Hz | omega2=339.9Hz | omega3=565.6Hz
+Epoch  30 | Batch  600 | Loss 0.034053 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=117.9Hz | omega2=341.8Hz | omega3=572.7Hz
+Epoch  30 | Batch  650 | Loss 0.050255 | J1=0.0004 J2=0.0005 J3=0.0000 | CFs: omega1=123.4Hz | omega2=348.1Hz | omega3=569.8Hz
+Epoch  30 | Batch  700 | Loss 0.034351 | J1=0.0005 J2=0.0000 J3=0.0002 | CFs: omega1=121.8Hz | omega2=334.7Hz | omega3=573.0Hz
+Epoch  30 | Batch  750 | Loss 0.030825 | J1=0.0002 J2=0.0000 J3=0.0001 | CFs: omega1=134.9Hz | omega2=340.5Hz | omega3=567.8Hz
+Epoch  30 | Batch  800 | Loss 0.046530 | J1=0.0002 J2=0.0000 J3=0.0000 | CFs: omega1=126.1Hz | omega2=339.6Hz | omega3=566.2Hz
+Epoch  30 | Batch  850 | Loss 0.044890 | J1=0.0003 J2=0.0000 J3=0.0000 | CFs: omega1=125.3Hz | omega2=339.3Hz | omega3=564.0Hz
+Epoch  30 | Batch  900 | Loss 0.039259 | J1=0.0004 J2=0.0000 J3=0.0000 | CFs: omega1=137.3Hz | omega2=336.6Hz | omega3=555.5Hz
+Epoch  30 | Batch  950 | Loss 0.043998 | J1=0.0002 J2=0.0000 J3=0.0011 | CFs: omega1=140.2Hz | omega2=332.0Hz | omega3=570.1Hz
+================================================================================
+Epoch 30/200 | Time 1099.8s | Avg Loss 0.083431 | J1=0.0036 J2=0.0047 J3=0.0034 | omegas(Hz)=[147 336 563 785 981]

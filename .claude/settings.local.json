@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mineru-open-api --version)",
+      "Bash(mineru-open-api flash-extract *)",
+      "Bash(python -c \"import torch; print\\('torch', torch.__version__\\)\")",
+      "Bash(python -m py_compile losses.py train_vmd.py test_vmd.py demo_vmd.py demo_lightweight.py)",
+      "Bash(python -m py_compile test_vmd.py demo_vmd.py)",
+      "Bash(python test_vmd.py --checkpoint ../exp/vmd_v4/best_model.pth.tar --out_dir ../exp/vmd_v4/test_stop)"
+    ]
+  }
+}
