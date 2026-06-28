@@ -111,6 +111,19 @@ def train(args):
     print(f"Using device: {device}")
     print(f"AMP (mixed precision): {'enabled' if use_amp else 'disabled (FP32)'}")
 
+    # ---- 真实风电切片 (可选, 混合训练) ----
+    wind_data = None
+    if args.wind_npy:
+        wind_data = np.load(args.wind_npy)  # [N, L]
+        if wind_data.shape[1] != args.signal_length:
+            print(f"[warn] 风电切片长度 {wind_data.shape[1]} != signal_length "
+                  f"{args.signal_length}; 将以风电切片长度为准。")
+            args.signal_length = wind_data.shape[1]
+        wind_data = torch.from_numpy(wind_data.astype('float32'))
+        print(f"风电切片: {tuple(wind_data.shape)}  混合比例 wind_ratio={args.wind_ratio}")
+    else:
+        print("纯合成信号训练 (未提供 --wind_npy)")
+
     # ---- Model ----
     model = NeuralSVMD(
         n_fft=args.n_fft,
@@ -182,11 +195,27 @@ def train(args):
         n_batches = args.batches_per_epoch
 
         for batch_idx in range(n_batches):
-            # ---- Direct batch generation (no DataLoader overhead) ----
-            batch_signals = generate_synthetic_signal(
-                args.batch_size, args.signal_length, args.sample_rate,
-                args.min_modes, args.max_modes, args.noise_std
-            )
+            # ---- 混合 batch: 合成信号 + 真实风电切片 ----
+            # 合成信号用 synth_sample_rate 生成 (模型只看归一化频率, 与显示用的
+            # sample_rate 无关), 保证模态分布在 [0,0.5] 归一化频率内合理。
+            n_wind = 0
+            if wind_data is not None and args.wind_ratio > 0:
+                n_wind = min(int(round(args.batch_size * args.wind_ratio)), args.batch_size)
+            n_synth = args.batch_size - n_wind
+
+            parts = []
+            if n_synth > 0:
+                parts.append(generate_synthetic_signal(
+                    n_synth, args.signal_length, args.synth_sample_rate,
+                    args.min_modes, args.max_modes, args.noise_std
+                ))
+            if n_wind > 0:
+                idx = torch.randint(0, wind_data.shape[0], (n_wind,))
+                parts.append(wind_data[idx])
+
+            batch_signals = torch.cat(parts, dim=0)
+            # 打乱合成/风电的顺序, 避免 batch 内分块
+            batch_signals = batch_signals[torch.randperm(batch_signals.shape[0])]
             batch_signals = batch_signals.to(device, non_blocking=True)
 
             total_loss = 0.0
@@ -297,24 +326,26 @@ def train(args):
             epoch_loss += total_loss.item()
 
             if batch_idx % args.log_interval == 0:
+                # 显示归一化频率 f_norm 及对应周期(点数=1/f_norm); 不受 sample_rate 影响
                 cf_str = " | ".join(
-                    f"omega{i+1}={history[i]['omega'].mean().item()*args.sample_rate:.1f}Hz"
+                    (lambda fn: f"w{i+1}={fn:.4f}(~{1.0/fn:.0f}pt)" if fn > 1e-6 else f"w{i+1}={fn:.4f}")(
+                        history[i]['omega'].mean().item())
                     for i in range(min(len(history), 3))
                 )
                 print(f"Epoch {epoch+1:3d} | Batch {batch_idx:4d} | "
                       f"Loss {total_loss.item():.6f} | "
                       f"J1={J1.item():.4f} J2={J2.item():.4f} J3={J3.item():.4f} | "
-                      f"CFs: {cf_str}",
+                      f"{cf_str}",
                       flush=True)
 
         # ---- Epoch summary ----
         avg_loss = epoch_loss / n_batches
         elapsed = time.time() - epoch_start
 
-        # 显示前几个 step 的中心频率 (各 step 独立维护)
+        # 显示前几个 step 的中心频率(归一化 f_norm, 不受 sample_rate 影响)
         n_show = min(criterion.max_steps, 5)
         omega_str = " ".join(
-            f"{criterion.omegas[i].item()*args.sample_rate:.0f}"
+            f"{criterion.omegas[i].item():.4f}"
             for i in range(n_show)
         )
 
@@ -324,7 +355,7 @@ def train(args):
               f"J1={epoch_j1/(n_batches*args.recursion_steps):.4f} "
               f"J2={epoch_j2/(n_batches*args.recursion_steps):.4f} "
               f"J3={epoch_j3/(n_batches*args.recursion_steps):.4f} | "
-              f"omegas(Hz)=[{omega_str}]")
+              f"omegas(norm)=[{omega_str}]")
         print(f"{'='*80}")
 
         # ---- Learning Rate Scheduler ----
@@ -368,15 +399,25 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Neural SVMD — Unsupervised Mode Decomposition Training')
 
     # Data
-    parser.add_argument('--signal_length', type=int, default=16000, help='signal length in samples')
-    parser.add_argument('--sample_rate', type=int, default=8000, help='sample rate (Hz)')
+    parser.add_argument('--signal_length', type=int, default=1024, help='signal length in samples')
+    parser.add_argument('--sample_rate', type=float, default=0.0166667,
+                        help='sample rate (Hz); 风电 1min 采样 = 1/60 ≈ 0.0167')
     parser.add_argument('--min_modes', type=int, default=3, help='minimum number of modes')
     parser.add_argument('--max_modes', type=int, default=10, help='maximum number of modes')
     parser.add_argument('--noise_std', type=float, default=0.02, help='noise std dev')
+    parser.add_argument('--synth_sample_rate', type=float, default=8000.0,
+                        help='合成信号生成用的参考采样率(仅决定合成模态频率分布; '
+                             '模型只看归一化频率, 与 --sample_rate 显示无关)')
+
+    # 真实风电数据 (混合训练): 若提供则每个 batch 按比例混入风电切片
+    parser.add_argument('--wind_npy', type=str, default='',
+                        help='风电切片 .npy 路径 [N, signal_length]; 空=纯合成训练')
+    parser.add_argument('--wind_ratio', type=float, default=0.5,
+                        help='每个 batch 中风电切片占比 (0~1), 其余为合成信号')
 
     # Model
-    parser.add_argument('--n_fft', type=int, default=512, help='STFT window size')
-    parser.add_argument('--hop_length', type=int, default=128, help='STFT hop length')
+    parser.add_argument('--n_fft', type=int, default=256, help='STFT window size')
+    parser.add_argument('--hop_length', type=int, default=64, help='STFT hop length')
     parser.add_argument('--hidden_dim', type=int, default=64, help='feature dimension')
 
     # Training

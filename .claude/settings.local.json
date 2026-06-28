@@ -6,7 +6,10 @@
       "Bash(python -c \"import torch; print\\('torch', torch.__version__\\)\")",
       "Bash(python -m py_compile losses.py train_vmd.py test_vmd.py demo_vmd.py demo_lightweight.py)",
       "Bash(python -m py_compile test_vmd.py demo_vmd.py)",
-      "Bash(python test_vmd.py --checkpoint ../exp/vmd_v4/best_model.pth.tar --out_dir ../exp/vmd_v4/test_stop)"
+      "Bash(python test_vmd.py --checkpoint ../exp/vmd_v4/best_model.pth.tar --out_dir ../exp/vmd_v4/test_stop)",
+      "Bash(python prepare_wind_data.py --win 1024 --hop 128)",
+      "Bash(timeout 300 python train_vmd.py --wind_npy ../exp/wind/wind_train.npy --wind_ratio 0.5 --save_dir ../exp/vmd_wind_smoke --epochs 2 --batches_per_epoch 40 --log_interval 10 --warmup_steps 100 --use_cuda 1)",
+      "Bash(python train_vmd.py --wind_npy ../exp/wind/wind_train.npy --wind_ratio 0.5 --save_dir ../exp/vmd_wind_smoke --epochs 1 --batches_per_epoch 30 --log_interval 10 --warmup_steps 100 --use_cuda 1)"
     ]
   }
 }

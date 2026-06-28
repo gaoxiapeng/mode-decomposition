@@ -68,8 +68,15 @@ def read_excel_column(path, col_idx=3):
             n = n * 26 + (ord(ch) - ord('A') + 1)
         return n - 1  # 0-based
 
+    all_rows = list(sheet.iter('{%s}row' % ns['m']))
+    # 负索引(如 -1=最后一列): 先用表头行算出最大列号再转正
+    if col_idx < 0 and all_rows:
+        max_col = max((col_num(col_letters(c.get('r')))
+                       for c in all_rows[0].findall('m:c', ns)), default=0)
+        col_idx = max_col + 1 + col_idx
+
     data, col_name = [], f'col{col_idx}'
-    for ri, row in enumerate(sheet.iter('{%s}row' % ns['m'])):
+    for ri, row in enumerate(all_rows):
         for c in row.findall('m:c', ns):
             ref = c.get('r')
             if col_num(col_letters(ref)) != col_idx:
@@ -188,10 +195,16 @@ def plot_all(signal, modes, center_freqs, residual, sr, out_path, sig_name):
 
 def main():
     ap = argparse.ArgumentParser(description='Neural SVMD — 真实风电信号分解')
-    ap.add_argument('--excel', default='../exp/wind/group_4_r10r30.xlsx')
-    ap.add_argument('--col', type=int, default=3, help='信号列 (0-based, 第4列=3)')
-    ap.add_argument('--checkpoint', default='../exp/vmd_v4/best_model.pth.tar')
-    ap.add_argument('--sample_rate', type=int, default=8000, help='风电信号采样率(Hz)')
+    ap.add_argument('--excel', default='../exp/wind/wind100MW_15min.xlsx')
+    ap.add_argument('--col', type=int, default=-1, help='信号列 (0-based; -1=最后一列)')
+    ap.add_argument('--checkpoint', default='../exp/vmd_wind/best_model.pth.tar')
+    ap.add_argument('--sample_rate', type=float, default=0.0166667,
+                    help='风电采样率(Hz); 1min 采样 = 1/60 ≈ 0.0167')
+    ap.add_argument('--n_fft', type=int, default=256, help='STFT 窗口(须与训练模型一致)')
+    ap.add_argument('--hop_length', type=int, default=64, help='STFT hop(须与训练模型一致)')
+    ap.add_argument('--seg_len', type=int, default=1024,
+                    help='只取信号的前 seg_len 点分解(与训练窗口一致); 0=用整段')
+    ap.add_argument('--seg_start', type=int, default=0, help='截取起始点')
     ap.add_argument('--max_steps', type=int, default=20)
     ap.add_argument('--epsilon', type=float, default=0.005)
     ap.add_argument('--normalize', type=int, default=1, help='是否对信号做标准化(零均值/单位方差)')
@@ -203,18 +216,24 @@ def main():
 
     # 读信号
     signal, col_name = read_excel_column(args.excel, args.col)
-    print(f'信号列: {col_name!r}  长度: {len(signal)}  '
+    print(f'信号列: {col_name!r}  总长度: {len(signal)}  '
           f'范围: [{signal.min():.3f}, {signal.max():.3f}]')
 
-    # 去均值 (+可选标准化)。模型在零均值合成信号上训练, 真实信号常有直流分量。
+    # 截取一段(与训练窗口一致); seg_len=0 用整段
+    if args.seg_len and args.seg_len > 0:
+        s0 = args.seg_start
+        signal = signal[s0:s0 + args.seg_len]
+        print(f'截取 [{s0}:{s0+args.seg_len}] → {len(signal)} 点')
+
+    # 去均值 (+可选标准化)。模型在零均值信号上训练, 真实功率有大直流分量。
     signal = signal - signal.mean()
     if args.normalize:
         std = signal.std()
         if std > 1e-8:
             signal = signal / std
 
-    # 模型
-    model = NeuralSVMD(n_fft=512, hop_length=128, hidden_dim=64,
+    # 模型 (n_fft/hop 须与训练时一致)
+    model = NeuralSVMD(n_fft=args.n_fft, hop_length=args.hop_length, hidden_dim=64,
                        sample_rate=args.sample_rate)
     ckpt = torch.load(args.checkpoint, map_location=device)
     sd = {k.replace('module.', ''): v for k, v in ckpt['model_state_dict'].items()}
