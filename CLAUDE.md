@@ -31,6 +31,21 @@ cd Code && python demo_lightweight.py            # add --skip_train to only run 
 
 # Check a checkpoint for NaN/Inf weights
 cd Code && python check_model_weights.py <checkpoint.pth.tar>
+
+# --- Real wind-power pipeline ---
+# 1) Slice the wind Excel into normalized training windows → wind_train.npy [N, win]
+cd Code && python prepare_wind_data.py                # reads ../exp/wind/wind100MW_15min.xlsx
+
+# 2) Train mixing real wind slices into synthetic batches (wind_ratio of each batch)
+cd Code && python train_vmd.py --wind_npy ../exp/wind/wind_train.npy --wind_ratio 0.5
+
+# 3) Decompose a real wind signal (Excel column) and plot modes/residual
+cd Code && python test_wind.py --excel ../exp/wind/wind100MW_15min.xlsx \
+    --checkpoint ../exp/vmd_wind/best_model.pth.tar
+
+# Generate an out-of-distribution "hard" signal (harmonic comb, chirps, beats, bursts,
+# pink noise) to stress-test separation; add --checkpoint to also decompose it
+cd Code && python make_complex_signal.py --checkpoint ../exp/vmd_wind/best_model.pth.tar
 ```
 
 There is no linter or test framework. Verification is visual (the plotting scripts) plus
@@ -143,7 +158,9 @@ Inference-only helpers (also in `losses.py`, NOT part of the criterion):
 
 - **Data**: `generate_synthetic_signal` (defined inline in this file) makes on-the-fly
   multi-component AM-FM signals, 3–10 modes, enforced min frequency spacing, light noise.
-  Batches are generated directly each step (no DataLoader).
+  Batches are generated directly each step (no DataLoader). If `--wind_npy` is given, a
+  fraction (`--wind_ratio`, default 0.5) of each batch is drawn from real wind slices
+  (`prepare_wind_data.py` output) instead of synthetic; otherwise training is purely synthetic.
 - **Recursive loop**: instantiates a `NeuralSVMDCriterion`; each step calls
   `model(current_input, step)` → `criterion(mode_spec, residual_spec, signal_spec, history)`,
   then appends `{"omega", "mode_spec"}` to `history` (for J3), calls `criterion.update_omega()`,
@@ -172,6 +189,20 @@ Inference-only helpers (also in `losses.py`, NOT part of the criterion):
   decomposes each, prints reconstruction MSE, saves `{name}_original.png` and `{name}_modes.png`.
 - `demo_vmd.py` — single 8-mode signal, fuller plots (time/freq comparisons, residual).
 - `demo_lightweight.py` — self-contained train+test on a small model for quick iteration.
+- `test_wind.py` — decomposes a real wind-power signal (one Excel column, dependency-free
+  xlsx reader with openpyxl fast path). De-means/normalizes, then recursively decomposes with a
+  **triple stop** (energy `epsilon` / residual plateau / duplicate-CF), and plots each mode +
+  final residual. `n_fft`/`hop_length` must match the trained checkpoint.
+- `make_complex_signal.py` — synthesizes an out-of-distribution stress signal (harmonic comb,
+  chirps, sub-resolution beat pair, transient bursts, pink+white noise) in normalized frequency;
+  with `--checkpoint` it reuses `test_wind.decompose`/`plot_all` to decompose it.
+- `prepare_wind_data.py` — slices the wind Excel's last column into per-window de-meaned,
+  std-normalized training segments → `wind_train.npy` (feeds `train_vmd.py --wind_npy`).
+
+**Model size must match across train/inference**: `train_vmd.py`, `test_wind.py`, and
+`make_complex_signal.py` all default to `n_fft=256 / hop_length=64`, while the `NeuralSVMD`
+constructor default is `512 / 128`. A checkpoint trained at 256/64 will silently misbehave if
+loaded with the constructor defaults — always pass matching `--n_fft`/`--hop_length`.
 
 Recursive decomposition in the inference scripts uses `RECURSION_STEPS = 20` and a relative
 residual-energy `epsilon` stop, mirroring training. Each step passes the step index into
@@ -184,12 +215,13 @@ checkpoints with `strict=False` so the criterion's buffers aren't required.
 |-----------|---------|------|
 | `--recursion_steps` | 20 | Max recursion depth (hard cap) |
 | `--stop_epsilon` | 0.01 | Adaptive stop: residual / original energy |
-| `--weight_bandwidth` | 20.0 | `w1`: J1 weight (balanced with J2/J3; too large → mode collapse) |
+| `--weight_bandwidth` | 40.0 | `w1`: J1 weight (balanced with J2/J3; too large → mode collapse) |
 | `--alpha_bandwidth` | 50.0 | `alpha`: J1 scale + β-filter sharpness in J2 (larger = narrower β) |
-| `--gamma_residual` | 1.0 | `w2`: J2 (residual separation) weight |
-| `--delta_history` | 2.0 | `w3`: J3 (history separation) weight |
+| `--gamma_residual` | 20.0 | `w2`: J2 (residual separation) weight |
+| `--delta_history` | 20.0 | `w3`: J3 (history separation) weight |
 | `--use_amp` | 0 | AMP mixed precision (0 = FP32, more NaN-stable) |
-| `--n_fft` / `--hop_length` / `--hidden_dim` | 512 / 128 / 64 | Model size |
+| `--n_fft` / `--hop_length` / `--hidden_dim` | 256 / 64 / 64 | Model size |
+| `--wind_npy` / `--wind_ratio` | `''` / 0.5 | Real wind slices path; fraction of each batch from wind |
 
 These CLI args map to `NeuralSVMDCriterion(alpha, w1, w2, w3, ...)`. There is no
 reconstruction-loss weight and no energy-floor (`--eta_energy`) term — the loss is exactly

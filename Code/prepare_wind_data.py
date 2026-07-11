@@ -65,12 +65,37 @@ def read_excel_last_column(path):
     return np.asarray(data, dtype=np.float32), col_name
 
 
+def slice_windows(sig, win, hop, normalize, min_std):
+    """对一段连续信号滑窗切片。返回 (arr[N, win], n_skip)。段数为 0 时 arr 为空数组。"""
+    segs = []
+    n_skip = 0
+    for start in range(0, len(sig) - win + 1, hop):
+        seg = sig[start:start + win].copy()
+        if normalize:
+            seg = seg - seg.mean()
+            s = seg.std()
+            if s < min_std:      # 平直段无信息, 跳过
+                n_skip += 1
+                continue
+            seg = seg / s
+        segs.append(seg)
+    arr = (np.stack(segs).astype(np.float32) if segs
+           else np.empty((0, win), dtype=np.float32))
+    return arr, n_skip
+
+
 def main():
-    ap = argparse.ArgumentParser(description='风电功率信号 → 滑窗训练切片')
+    ap = argparse.ArgumentParser(description='风电功率信号 → 滑窗训练/测试切片 (按时间划分)')
     ap.add_argument('--excel', default='../exp/wind/wind100MW_15min.xlsx')
     ap.add_argument('--win', type=int, default=1024, help='窗口长度(点)')
     ap.add_argument('--hop', type=int, default=128, help='滑动步长(点)')
-    ap.add_argument('--out', default='../exp/wind/wind_train.npy')
+    ap.add_argument('--out_train', default='../exp/wind/wind_train.npy')
+    ap.add_argument('--out_test', default='../exp/wind/wind_test.npy')
+    ap.add_argument('--test_ratio', type=float, default=0.2,
+                    help='末尾用作测试集的时间比例 (0=不划分, 全部做训练)')
+    ap.add_argument('--gap', type=int, default=-1,
+                    help='train/test 之间丢弃的间隔点数, 防重叠窗口跨界泄漏; '
+                         '-1=自动取一个 win 长')
     ap.add_argument('--normalize', type=int, default=1,
                     help='每段去均值并除以标准差 (1=是)')
     ap.add_argument('--min_std', type=float, default=1e-6,
@@ -88,29 +113,35 @@ def main():
         sig = np.interp(np.arange(len(sig)), idx, sig[idx]).astype(np.float32)
         print(f'  插值填补了 {n_nan} 个 NaN')
 
-    # 滑窗切片
-    segs = []
-    n_skip = 0
-    for start in range(0, len(sig) - args.win + 1, args.hop):
-        seg = sig[start:start + args.win].copy()
-        if args.normalize:
-            seg = seg - seg.mean()
-            s = seg.std()
-            if s < args.min_std:      # 平直段无信息, 跳过
-                n_skip += 1
-                continue
-            seg = seg / s
-        segs.append(seg)
+    # ---- 按时间划分 train / test (无重叠, 中间留 gap 防泄漏) ----
+    # 时序数据不能随机划分: 相邻滑窗高度重叠, 随机切会让测试段信息泄漏进训练。
+    # 故按时间顺序: 前 (1-test_ratio) 做训练, 末尾 test_ratio 做测试, 中间丢一个 win。
+    gap = args.win if args.gap < 0 else args.gap
+    n = len(sig)
+    if args.test_ratio <= 0:
+        train_sig, test_sig = sig, np.empty(0, dtype=sig.dtype)
+    else:
+        n_test = int(round(n * args.test_ratio))
+        split = n - n_test
+        train_sig = sig[:max(0, split - gap)]   # 训练段末尾丢 gap 点
+        test_sig = sig[split:]
+        print(f'时间划分: 训练 [0:{max(0, split-gap)}]  '
+              f'间隔丢弃 {gap} 点  测试 [{split}:{n}]')
 
-    arr = np.stack(segs).astype(np.float32)  # [N, win]
-    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
-    np.save(args.out, arr)
+    train_arr, tr_skip = slice_windows(train_sig, args.win, args.hop,
+                                       args.normalize, args.min_std)
+    os.makedirs(os.path.dirname(os.path.abspath(args.out_train)), exist_ok=True)
+    np.save(args.out_train, train_arr)
+    overlap = 100 * (1 - args.hop / args.win)
+    print(f'[train] {train_arr.shape[0]} 段 × {args.win} 点 (步长 {args.hop}, '
+          f'重叠 {overlap:.0f}%)  跳过平直段 {tr_skip}  →  {args.out_train}')
 
-    print(f'切片完成: {arr.shape[0]} 段 × {arr.shape[1]} 点  '
-          f'(步长 {args.hop}, 重叠 {100*(1-args.hop/args.win):.0f}%)')
-    if n_skip:
-        print(f'  跳过 {n_skip} 个平直段(std<{args.min_std})')
-    print(f'已保存: {args.out}')
+    if args.test_ratio > 0:
+        test_arr, te_skip = slice_windows(test_sig, args.win, args.hop,
+                                          args.normalize, args.min_std)
+        np.save(args.out_test, test_arr)
+        print(f'[test]  {test_arr.shape[0]} 段 × {args.win} 点  '
+              f'跳过平直段 {te_skip}  →  {args.out_test}')
 
 
 if __name__ == '__main__':

@@ -9,7 +9,17 @@
       "Bash(python test_vmd.py --checkpoint ../exp/vmd_v4/best_model.pth.tar --out_dir ../exp/vmd_v4/test_stop)",
       "Bash(python prepare_wind_data.py --win 1024 --hop 128)",
       "Bash(timeout 300 python train_vmd.py --wind_npy ../exp/wind/wind_train.npy --wind_ratio 0.5 --save_dir ../exp/vmd_wind_smoke --epochs 2 --batches_per_epoch 40 --log_interval 10 --warmup_steps 100 --use_cuda 1)",
-      "Bash(python train_vmd.py --wind_npy ../exp/wind/wind_train.npy --wind_ratio 0.5 --save_dir ../exp/vmd_wind_smoke --epochs 1 --batches_per_epoch 30 --log_interval 10 --warmup_steps 100 --use_cuda 1)"
+      "Bash(python train_vmd.py --wind_npy ../exp/wind/wind_train.npy --wind_ratio 0.5 --save_dir ../exp/vmd_wind_smoke --epochs 1 --batches_per_epoch 30 --log_interval 10 --warmup_steps 100 --use_cuda 1)",
+      "WebSearch",
+      "Bash(py --version)",
+      "Bash(command -v py)",
+      "Bash(conda run -n mode-decomposition python -c ' *)",
+      "Read(//c/Users/12087/miniconda3/**)",
+      "Bash(where conda *)",
+      "Bash(D:/users/anaconda3/envs/mode-decomposition/python.exe -c ' *)",
+      "Bash(PYTHONIOENCODING=utf-8 D:/users/anaconda3/envs/mode-decomposition/python.exe -c ' *)",
+      "Bash(PYTHONIOENCODING=utf-8 D:/users/anaconda3/envs/mode-decomposition/python.exe make_complex_signal.py --seed 77777 --N 512 --n_fft 256 --hop_length 64 --checkpoint ../exp/vmd_wind/best_model.pth.tar --out ../exp/wind/complex_seed77777.png --save_npy ../exp/wind/complex_seed77777.npy)",
+      "Bash(PYTHONIOENCODING=utf-8 D:/users/anaconda3/envs/mode-decomposition/python.exe make_complex_signal.py --seed 31415 --N 512 --n_fft 256 --hop_length 64 --sample_rate 1.0 --checkpoint ../exp/vmd_wind/best_model.pth.tar --out ../exp/wind/complex_seed31415.png --save_npy ../exp/wind/complex_seed31415.npy)"
     ]
   }
 }
